@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import java.util.Locale
 
 class MoviesAdapter(
-    private val articleList: ArrayList<Movie>,
+    private val moviesList: ArrayList<Movie>,
     private val onClick: (Long) -> Unit
 ) : RecyclerView.Adapter<MoviesAdapter.DataViewHolder>() {
 
@@ -39,19 +39,19 @@ class MoviesAdapter(
             )
         )
 
-    override fun getItemCount(): Int = articleList.size
+    override fun getItemCount(): Int = moviesList.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        holder.bind(articleList[position])
+        holder.bind(moviesList[position])
         holder.itemView.setOnClickListener {
-            onClick(articleList[position].id)
+            onClick(moviesList[position].id)
         }
 
     }
 
     fun addData(list: List<Movie>) {
-        articleList.clear()
-        articleList.addAll(list)
+        moviesList.clear()
+        moviesList.addAll(list)
     }
 
 }
